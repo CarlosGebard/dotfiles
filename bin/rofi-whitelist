@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+LIST="$HOME/.config/rofi/whitelist.tsv"
+APPDIRS=("$HOME/.local/share/applications" "/usr/share/applications" "/usr/local/share/applications")
+
+desktop_file_for() {
+  local id="$1"
+  local d
+  for d in "${APPDIRS[@]}"; do
+    [[ -f "$d/$id.desktop" ]] && { echo "$d/$id.desktop"; return 0; }
+  done
+  return 1
+}
+
+get_icon_from_desktop() {
+  local id="$1"
+  local f
+  f="$(desktop_file_for "$id" 2>/dev/null || true)"
+  [[ -z "$f" ]] && return 0
+  grep -m1 '^Icon=' "$f" | sed 's/^Icon=//'
+}
+
+# ---------- EJECUCIÓN (NO BLOQUEA ROFI) ----------
+if [[ $# -gt 0 ]]; then
+  label="$1"
+
+  # TSV ahora es: PRIO<TAB>LABEL<TAB>TARGET
+  target="$(awk -F'\t' -v k="$label" '$2==k {print $3; exit}' "$LIST" || true)"
+  if [[ -z "${target:-}" ]]; then
+    notify-send "Rofi whitelist" "No target found for: $label" 2>/dev/null || true
+    exit 1
+  fi
+
+  case "$target" in
+    cmd:*)
+      setsid bash -lc "${target#cmd:}" >/dev/null 2>&1 &
+      ;;
+    *)
+      setsid gtk-launch "$target" >/dev/null 2>&1 &
+      ;;
+  esac
+
+  exit 0
+fi
+
+# ---------- LISTADO (ORDENADO POR PRIORIDAD + ICONOS) ----------
+# TSV: PRIO<TAB>LABEL<TAB>TARGET
+sort -n -t $'\t' -k1,1 "$LIST" | while IFS=$'\t' read -r prio label target; do
+  [[ -z "${label:-}" || -z "${target:-}" ]] && continue
+
+  icon=""
+  case "$target" in
+    cmd:*)
+      icon="utilities-terminal"
+      ;;
+    *)
+      icon="$(get_icon_from_desktop "$target" || true)"
+      ;;
+  esac
+
+  printf '%s\0icon\x1f%s\n' "$label" "$icon"
+done

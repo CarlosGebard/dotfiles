@@ -1,0 +1,33 @@
+10	Visual Studio Code	code
+20	Spotify	spotify
+30	Bluetooth Manager	blueman-manager
+40	Bitwarden	bitwarden
+50	Vivaldi	vivaldi-stable
+60	Files (Nemo)	nemo
+70	PulseAudio Volume Control	org.pulseaudio.pavucontrol
+80	Obsidian	obsidian
+90	Notion	notion
+100	Kitty	kitty
+110	Postman	postman
+
+200	Beekeeper	beekeeper
+210	Blender	blender
+220	btop	cmd:kitty -e btop
+230	CMake GUI	cmake-gui
+240	Disk Usage Analyzer	org.gnome.baobab
+250	File Roller	org.gnome.FileRoller
+260	Fragments	de.haeckerfelix.Fragments
+270	GNU Radio Companion	gnuradio-grc
+280	Heroic Game Launcher	heroic
+290	Kid3	org.kde.kid3
+300	Legcord	legcord
+310	mGBA	io.mgba.mGBA
+320	mpv	mpv
+330	ncmpcpp	cmd:kitty -e ncmpcpp
+340	OBS Studio	com.obsproject.Studio
+350	Pinta	pinta
+360	Piper	org.freedesktop.Piper
+380	PrismLauncher	org.prismlauncher.PrismLauncher
+390	VLC	vlc
+400	Warp	dev.warp.Warp
+410	Zoom	Zoom

@@ -1,0 +1,16 @@
+eww
+gfn-electron-bin
+legcord-bin
+legendary
+pinta
+postman-bin
+proton-ge-custom-bin
+qogir-icon-theme
+simple-mtpfs
+spotify
+visual-studio-code-bin
+way-displays
+wlogout
+yay
+yay-debug
+zoom
