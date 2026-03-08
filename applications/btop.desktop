@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=btop
+Comment=Resource monitor
+Exec=kitty -e btop
+Icon=xfce4-cpugraph-plugin
+Terminal=false
+Categories=System;Monitor;

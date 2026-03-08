@@ -1,0 +1,25 @@
+IMAPAccount gmail
+Host imap.gmail.com
+User carlosjaragebhard@gmail.com
+Pass svodsynrnykzyozp
+Port 993
+SSLType IMAPS
+
+IMAPStore gmail-remote
+Account gmail
+
+MaildirStore gmail-local
+Path ~/.mail/gmail/
+Inbox ~/.mail/gmail/INBOX
+Subfolders Verbatim
+
+Channel gmail
+Master :gmail-remote:
+Slave :gmail-local:
+
+Patterns INBOX "[Gmail]/Enviados" "[Gmail]/Papelera"
+Create Near
+SyncState *
+
+MapInbox INBOX
+

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=ncmpcpp
+Comment=Music Player Client (MPD)
+Exec=kitty -e ncmpcpp
+Terminal=false
+Icon=multimedia-player
+Categories=Audio;Music;Player;
+Keywords=music;mpd;audio;

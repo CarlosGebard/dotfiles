@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Helium
+Exec=/usr/local/bin/helium
+Terminal=false
+Icon=thorium-browser
+Categories=Network;Utility;
+MimeType=x-scheme-handler/unknown;x-scheme-handler/about;x-scheme-handler/https;x-scheme-handler/http;text/html;

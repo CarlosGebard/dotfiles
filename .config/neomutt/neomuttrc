@@ -1,0 +1,52 @@
+set real_name = "Carlos Jara"
+set from = "carlosjaragebhard@gmail.com"
+set use_from = yes
+
+set mbox_type = maildir
+set folder = "~/.mail/gmail"
+set spoolfile = "=INBOX"
+
+set record = "=[Gmail]/Enviados"
+set trash = "=[Gmail]/Papelera"
+
+mailboxes =INBOX "=[Gmail]/Enviados" "=[Gmail]/Papelera"
+
+named-mailboxes "Inbox" =INBOX
+named-mailboxes "Sent" "=[Gmail]/Enviados"
+named-mailboxes "Trash" "=[Gmail]/Papelera"
+
+set sendmail = "/usr/bin/msmtp"
+set sendmail_wait = 0
+
+set sort = threads
+set sort_aux = reverse-date-received
+
+set sidebar_visible = yes
+set sidebar_width = 30
+set sidebar_short_path = yes
+set sidebar_next_new_wrap = yes
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+
+auto_view text/html
+alternative_order text/plain text/html
+
+set color_directcolor = no
+color index brightcyan default "~N"
+color index brightyellow default "~F"
+color index brightgreen default "~T"
+color header brightmagenta default "^From:"
+color header brightcyan default "^Subject:"
+color quoted brightblue default
+color signature brightblack default
+color status brightwhite blue
+color sidebar_highlight brightyellow default
+
+set pager_index_lines = 5
+set index_format = "%4C %Z %{%Y-%m-%d} %-20.20F %s"
+
+set mail_check = 60
+
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+bind index,pager R sync-mailbox

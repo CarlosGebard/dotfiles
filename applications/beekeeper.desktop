@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=BeeKeeper
+Exec=/home/carlos/Repos/Beekeeper-Studio-5.5.5.AppImage
+Icon=celeste
+Terminal=false
+Categories=Utility;

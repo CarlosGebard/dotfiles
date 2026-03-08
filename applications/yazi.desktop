@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Yazi
+Comment=Terminal file manager
+Exec=kitty --title yazi -e /home/carlos/dotfiles/bin/yazi-cd.sh
+Icon=system-file-manager
+Terminal=false
+Categories=Utility;FileManager;

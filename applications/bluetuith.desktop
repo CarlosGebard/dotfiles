@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=bluetuith
+Comment=Bluetooth TUI manager
+Exec=kitty -e bluetuith
+Icon=bluetooth
+Terminal=false
+Categories=Utility;

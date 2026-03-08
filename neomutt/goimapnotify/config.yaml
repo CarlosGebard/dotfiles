@@ -1,0 +1,18 @@
+configurations:
+  - alias: gmail
+    host: imap.gmail.com
+    port: 993
+    tls: true
+
+    username: carlosjaragebhard@gmail.com
+    password: "svodsynrnykzyozp"
+
+    boxes:
+      - mailbox: INBOX
+        onNewMail: "mbsync gmail"
+
+      - mailbox: "[Gmail]/Enviados"
+        onNewMail: "mbsync gmail"
+
+      - mailbox: "[Gmail]/Papelera"
+        onNewMail: "mbsync gmail"

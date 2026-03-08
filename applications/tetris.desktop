@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Tetris TUI
+Comment=Terminal Tetris
+Exec=kitty -e tetris-tui
+Icon=unciv
+Terminal=false
+Categories=Game;

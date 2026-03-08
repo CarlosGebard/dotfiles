@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Neomutt
+Comment=Terminal email client
+Exec=kitty -e neomutt
+Icon=gmail
+Terminal=false
+Categories=Network;Email;

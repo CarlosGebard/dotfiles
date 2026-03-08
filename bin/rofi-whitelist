@@ -49,15 +49,24 @@ fi
 sort -n -t $'\t' -k1,1 "$LIST" | while IFS=$'\t' read -r prio label target; do
   [[ -z "${label:-}" || -z "${target:-}" ]] && continue
 
-  icon=""
-  case "$target" in
-    cmd:*)
-      icon="utilities-terminal"
-      ;;
-    *)
-      icon="$(get_icon_from_desktop "$target" || true)"
-      ;;
-  esac
+icon=""
+case "$target" in
+  # --- overrides explícitos ---
+  cmd:flatpak\ run\ com.spotify.Client)
+    icon="spotify"
+    ;;
+  cmd:btop|cmd:btop\ *)
+    icon="utilities-system-monitor"
+    ;;
+
+  # --- fallback general ---
+  cmd:*)
+    icon="utilities-terminal"
+    ;;
+  *)
+    icon="$(get_icon_from_desktop "$target" || true)"
+    ;;
+esac
 
   printf '%s\0icon\x1f%s\n' "$label" "$icon"
 done

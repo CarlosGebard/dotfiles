@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Wiremix
+Comment=PipeWire mixer TUI
+Exec=kitty -e wiremix
+Icon=unity-sound-panel
+Terminal=false
+Categories=Audio;Utility;
