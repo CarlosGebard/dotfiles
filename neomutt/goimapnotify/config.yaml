@@ -11,8 +11,8 @@ configurations:
       - mailbox: INBOX
         onNewMail: "mbsync gmail"
 
-      - mailbox: "[Gmail]/Enviados"
+      - mailbox: "[Gmail]/Sent Mail"
         onNewMail: "mbsync gmail"
 
-      - mailbox: "[Gmail]/Papelera"
+      - mailbox: "[Gmail]/Trash"
         onNewMail: "mbsync gmail"

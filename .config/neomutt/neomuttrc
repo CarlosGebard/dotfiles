@@ -6,14 +6,14 @@ set mbox_type = maildir
 set folder = "~/.mail/gmail"
 set spoolfile = "=INBOX"
 
-set record = "=[Gmail]/Enviados"
-set trash = "=[Gmail]/Papelera"
+set record = "=[Gmail]/Sent Mail"
+set trash = "=[Gmail]/Trash"
 
-mailboxes =INBOX "=[Gmail]/Enviados" "=[Gmail]/Papelera"
+mailboxes =INBOX "=[Gmail]/Drafts" "=[Gmail]/Important" "=[Gmail]/Sent Mail" "=[Gmail]/Spam" "=[Gmail]/Starred" "=[Gmail]/Trash" =Deleted/POP
 
 named-mailboxes "Inbox" =INBOX
-named-mailboxes "Sent" "=[Gmail]/Enviados"
-named-mailboxes "Trash" "=[Gmail]/Papelera"
+named-mailboxes "Sent" "=[Gmail]/Sent Mail"
+named-mailboxes "Trash" "=[Gmail]/Trash"
 
 set sendmail = "/usr/bin/msmtp"
 set sendmail_wait = 0
@@ -25,21 +25,49 @@ set sidebar_visible = yes
 set sidebar_width = 30
 set sidebar_short_path = yes
 set sidebar_next_new_wrap = yes
-set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set sidebar_format = "%B%?F? [%F]?%* %N/%S"
+set mail_check_stats = yes
+set mail_check_stats_interval = 60
 
 auto_view text/html
 alternative_order text/plain text/html
 
 set color_directcolor = no
-color index brightcyan default "~N"
-color index brightyellow default "~F"
-color index brightgreen default "~T"
-color header brightmagenta default "^From:"
-color header brightcyan default "^Subject:"
-color quoted brightblue default
-color signature brightblack default
-color status brightwhite blue
-color sidebar_highlight brightyellow default
+color normal default default
+color index color2 default ~N
+color index color1 default ~F
+color index color13 default ~T
+color index color1 default ~D
+color attachment color5 default
+color signature color8 default
+color search color4 default
+
+color indicator color0 color14
+color error color1 default
+color status color15 color0
+color tree color8 default
+color tilde color8 default
+
+color hdrdefault color13 default
+color header color13 default "^From:"
+color header color13 default "^Subject:"
+
+color quoted color7 default
+color quoted1 color15 default
+color quoted2 color8 default
+color quoted3 color6 default
+color quoted4 color4 default
+color quoted5 color12 default
+
+color body color2 default "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+"
+color body color2 default "(https?|ftp)://[^[:space:]>\"')]+"
+color body color4 default "(^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$)"
+color body color4 default "(^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)"
+color body color4 default "(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)"
+
+color sidebar_flagged color1 default
+color sidebar_new color10 default
+color sidebar_highlight color0 color14
 
 set pager_index_lines = 5
 set index_format = "%4C %Z %{%Y-%m-%d} %-20.20F %s"
@@ -50,3 +78,5 @@ bind index,pager \CP sidebar-prev
 bind index,pager \CN sidebar-next
 bind index,pager \CO sidebar-open
 bind index,pager R sync-mailbox
+macro index,pager \en "<next-unread-mailbox>" "Next mailbox with unread"
+macro index,pager \ep "<sidebar-prev-new><sidebar-open>" "Previous mailbox with unread/new"
