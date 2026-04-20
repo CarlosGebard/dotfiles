@@ -7,7 +7,7 @@
 6	Wiremix	wiremix
 7	Neomutt	neomutt
 8	Tetris	tetris
-
+8	Zotero	zotero
 10	Visual Studio Code	code
 20	Spotify	cmd:flatpak run com.spotify.Client
 40	Bitwarden	bitwarden

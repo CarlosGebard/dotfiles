@@ -1,9 +1,64 @@
 #!/bin/bash
 
+set -u
+
+notify_error() {
+  local message="$1"
+
+  if command -v notify-send >/dev/null 2>&1; then
+    notify-send "Screen Manager" "$message"
+  fi
+
+  printf '%s\n' "$message" >&2
+}
+
+require_command() {
+  local cmd="$1"
+
+  if ! command -v "$cmd" >/dev/null 2>&1; then
+    notify_error "Falta dependencia requerida: $cmd"
+    exit 1
+  fi
+}
+
+apply_layout() {
+  local layout_name="$1"
+  shift
+
+  local commands=()
+  local command_string=""
+  local exit_code=0
+  local output
+  local status
+
+  for monitor_rule in "$@"; do
+    commands+=("keyword monitor $monitor_rule")
+  done
+
+  command_string=$(printf ' ; %s' "${commands[@]}")
+  command_string=${command_string#' ; '}
+
+  output=$(hyprctl --batch "$command_string" 2>&1)
+  status=$?
+
+  if [ $status -ne 0 ] || [[ "$output" == error* ]] || [[ "$output" == *$'\nerror'* ]]; then
+    exit_code=$status
+    if [ $exit_code -eq 0 ]; then
+      exit_code=1
+    fi
+    notify_error "No se pudo aplicar '$layout_name': $output"
+    exit $exit_code
+  fi
+}
+
+require_command rofi
+require_command hyprctl
+
 options=(
   "Pantalla Principal"
   "Segunda Pantalla 1080p"
   "Segunda Pantalla 2K"
+  "Segunda Pantalla 4K"
   "UltraWide"
   "Extendido"
   "Duplicado"
@@ -11,36 +66,55 @@ options=(
 
 choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -p "Pantallas:")
 
+if [ $? -ne 0 ] || [ -z "${choice:-}" ]; then
+  exit 0
+fi
+
 case "$choice" in
 "Pantalla Principal")
-  hyprctl keyword monitor "eDP-1,3840x2160@60,0x0,2"
-  hyprctl keyword monitor "HDMI-A-1,disable"
+  apply_layout "$choice" \
+    "eDP-1,3840x2160@60,0x0,2" \
+    "HDMI-A-1,disable"
   ;;
 
 "Segunda Pantalla 1080p")
-  hyprctl keyword monitor "HDMI-A-1,1920x1080@60,0x0,1"
-  hyprctl keyword monitor "eDP-1,disable"
+  apply_layout "$choice" \
+    "HDMI-A-1,1920x1080@60,0x0,1" \
+    "eDP-1,disable"
   ;;
 
 "Segunda Pantalla 2K")
-  hyprctl keyword monitor "HDMI-A-1,2560x1440@60,0x0,1"
-  hyprctl keyword monitor "eDP-1,disable"
+  apply_layout "$choice" \
+    "HDMI-A-1,2560x1440@60,0x0,1" \
+    "eDP-1,disable"
   ;;
+
+"Segunda Pantalla 4K")
+  apply_layout "$choice" \
+    "HDMI-A-1,3840x2160@60,0x0,2" \
+    "eDP-1,disable"
+  ;;
+
 "UltraWide")
-  hyprctl keyword monitor "eDP-1,disable"
-  hyprctl keyword monitor "HDMI-A-1,2560x1080@60,0x0,1"
+  apply_layout "$choice" \
+    "eDP-1,disable" \
+    "HDMI-A-1,2560x1080@60,0x0,1"
   ;;
+
 "Extendido")
-  hyprctl keyword monitor "eDP-1,3840x2160@60,0x0,2"
-  hyprctl keyword monitor "HDMI-A-1,1920x1080@60,3840x0,1"
+  apply_layout "$choice" \
+    "eDP-1,3840x2160@60,0x0,2" \
+    "HDMI-A-1,1920x1080@60,3840x0,1"
   ;;
 
 "Duplicado")
-  hyprctl keyword monitor "eDP-1,3840x2160@60,0x0,2"
-  hyprctl keyword monitor "HDMI-A-1,1920x1080@60,0x0,1,mirror,eDP-1"
+  apply_layout "$choice" \
+    "eDP-1,3840x2160@60,0x0,2" \
+    "HDMI-A-1,1920x1080@60,0x0,1,mirror,eDP-1"
   ;;
 
 *)
-  exit 0
+  notify_error "Opcion de pantalla no reconocida: $choice"
+  exit 1
   ;;
 esac
