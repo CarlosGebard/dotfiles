@@ -1,6 +1,7 @@
 7zip
 age
-aws-cli
+ansible-core
+aws-cli-v2
 baobab
 base
 base-devel
@@ -18,11 +19,10 @@ cloc
 cmake
 cpupower
 d2
-davmail
 docker
 docker-buildx
 docker-compose
-eww
+droidcam
 fastfetch
 fd
 ffmpegthumbnailer
@@ -31,6 +31,7 @@ flatpak
 fzf
 gamemode
 gammastep
+geoclue
 gfn-electron-bin
 git
 github-cli
@@ -84,7 +85,6 @@ mpv
 msmtp
 mtpfs
 ncmpcpp
-neomutt
 neovim
 network-manager-applet
 networkmanager
@@ -93,13 +93,16 @@ notmuch
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
+oath-toolkit
 obs-studio
 obsidian
 openbsd-netcat
 pacman-contrib
 papirus-icon-theme
 papis
+pass
 pasystray
+perl-image-exiftool
 piper
 pipewire-alsa
 pipewire-pulse
@@ -127,7 +130,7 @@ qt6-multimedia-ffmpeg
 qt6-virtualkeyboard
 qt6-wayland
 qt6ct
-rbw
+rclone
 reflector
 resvg
 ripgrep
@@ -136,6 +139,7 @@ rofi
 rsync
 sddm
 simple-mtpfs
+smartmontools
 sof-firmware
 solaar
 sops
@@ -151,6 +155,7 @@ timew
 tmux
 transmission-cli
 tree
+tree-sitter-cli
 ttf-jetbrains-mono-nerd
 ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-common
@@ -162,6 +167,7 @@ unarchiver
 unzip
 urlview
 usbutils
+valkey
 visidata
 visual-studio-code-bin
 vulkan-intel
@@ -171,8 +177,6 @@ way-displays
 waybar
 wget
 whois
-wine
-winetricks
 wireless_tools
 wiremix
 wireshark-qt
@@ -189,7 +193,6 @@ yay
 yay-debug
 yazi
 yt-dlp
-ytfzf
 zathura
 zathura-pdf-mupdf
 zip

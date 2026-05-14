@@ -1,6 +1,5 @@
 bluetuith
-davmail
-eww
+droidcam
 gfn-electron-bin
 infisical-bin
 legcord-git
