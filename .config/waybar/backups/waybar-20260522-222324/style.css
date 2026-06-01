@@ -1,8 +1,6 @@
-@import "colors.css";
-
 * {
 	border: none;
-	border-radius: 0px;
+	border-radius: 10px;
     font-family: "JetbrainsMono Nerd Font";
 	font-size: 15px;
 	min-height: 10px;
@@ -11,8 +9,8 @@
 window {}
 
 window#waybar {
-	background-color: @wb_surface;
-    border-radius: 0px;
+	background-color: #1A1B26;
+    border-radius: 15px;
     margin-top: 6px;
 }
 
@@ -23,16 +21,16 @@ window#waybar.hidden {
 #window {
 	padding-left: 10px;
 	padding-right: 10px;
-	border-radius: 0px;
+	border-radius: 10px;
 	transition: none;
-	color: transparent;
-	background: @wb_transparent;
+    color: transparent;
+	background: transparent;
 }
 
 #workspaces {
     margin: 6px 6px 6px 6px;  
-	border-radius: 0px;
-	background: @wb_transparent;
+	border-radius: 18px;
+	background: #222330;
 	transition: none;
     padding-left: 12px;
     padding-right: 6px;
@@ -40,29 +38,29 @@ window#waybar.hidden {
 
 #workspaces button {
 	transition: none;
-	color: @wb_muted;
-	background: @wb_transparent;
+	color: #B5E8E6;
+	background: transparent;
     margin-right: 10px;
 }
 
 #workspaces button.persistent {
     transition: none;
-    color: @wb_accent_alt;
-    background: @wb_transparent;
+    color: #7aa2f7;
+    background: transparent;
     font-size: 4px;
 }
 
 #workspaces button.empty {
-	color: @wb_muted;
+	color: #583794;
     font-size: 2px;
     transition: none;
-    background: @wb_transparent;
+    background: transparent;
 }
 
 #workspaces button.active {
 	transition: none;
-	color: @wb_accent;
-	background: @wb_transparent;
+	color: #3dac68;
+	background: transparent;
 	font-size: 4px;
 }
 #pulseaudio {
@@ -71,12 +69,12 @@ window#waybar.hidden {
 	padding-left: 10px;
 	padding-right: 10px;
 	margin-bottom: 6px;
-	border-radius: 0px;
+	border-radius: 18px;
     font-size: 14px;
     font-weight: bold;
 	transition: none;
-	color: @wb_foreground;
-	background: @wb_transparent;
+	color: #F1F1F1;
+	background: #161320;
 }
 #battery {
 	margin-top: 6px;
@@ -84,22 +82,22 @@ window#waybar.hidden {
 	padding-left: 10px;
 	padding-right: 10px;
 	margin-bottom: 6px;
-	border-radius: 0px;
+	border-radius: 18px;
 	transition: none;
     font-size: 14px;
     font-weight: bold;
-	color: @wb_foreground;
-	background: @wb_transparent;
+	color: #161320;
+	background: #161320;
 }
 
 #battery.charging, #battery.plugged {
-	color: @wb_accent;
-    background-color: @wb_transparent;
+	color: #161320;
+    background-color: transparent;
 }
 
 #battery.critical:not(.charging) {
-    background-color: @wb_transparent;
-    color: @wb_accent_foreground;
+    background-color: #B5E8E0;
+    color: #161320;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -109,7 +107,7 @@ window#waybar.hidden {
 
 @keyframes blink {
     to {
-        color: @wb_warning;
+        color: #B5E8E0;
     }
 }
 
@@ -119,10 +117,10 @@ window#waybar.hidden {
 	padding-left: 10px;
 	padding-right: 10px;
 	margin-bottom: 0px;
-	border-radius: 0px;
+	border-radius: 10px;
 	transition: none;
-	color: @wb_accent_foreground;
-	background: @wb_transparent;
+	color: #161320;
+	background: #F8BD96;
 }
 
 #clock {
@@ -132,24 +130,24 @@ window#waybar.hidden {
 	padding-right: 10px;
     margin-right: 0px;
 	margin-bottom: 6px;
-	border-radius: 0px;
+	border-radius: 18px;
 	transition: none;
     font-size: 14px;
     font-weight: bold;
-	color: @wb_foreground;
-	background: @wb_transparent;
+	color: #F1F1F1;
+	background: #161320;
 }
 
 #memory {
     margin: 6px 0px 6px 8px;
 	padding-left: 10px;
 	padding-right: 10px;
-	border-radius: 0px;
+	border-radius: 18px;
     font-size: 14px;
     font-weight: bold;
 	transition: none;
-	color: @wb_foreground;
-	background: @wb_transparent;
+	color: #F1F1F1;
+	background: #161320;
 }
 
 #disk {	
@@ -158,12 +156,12 @@ window#waybar.hidden {
 	padding-left: 10px;
 	margin-bottom: 6px;
 	padding-right: 10px;
-	border-radius: 0px;
+	border-radius: 18px;
     font-size: 14px;
     font-weight: bold;
 	transition: none;
-	color: @wb_foreground;
-	background: @wb_transparent;
+	color: #F1F1F1;
+	background: #161320;
 
 }
 
@@ -173,12 +171,12 @@ window#waybar.hidden {
 	padding-left: 10px;
 	margin-bottom: 6px;
 	padding-right: 10px;
-	border-radius: 0px;
+	border-radius: 18px;
     font-size: 14px;
     font-weight: bold;
 	transition: none;
-	color: @wb_foreground;
-	background: @wb_transparent;
+	color: #F1F1F1;
+	background: #161320;
 }
 
 #tray {
@@ -187,10 +185,10 @@ window#waybar.hidden {
 	padding-left: 10px;
 	margin-bottom: 6px;
 	padding-right: 10px;
-	border-radius: 0px;
+	border-radius: 10px;
 	transition: none;
-	color: @wb_accent_alt;
-	background: @wb_transparent;
+	color: #20a894;
+	background: #161320;
 }
 
 #custom-launcher {
@@ -198,10 +196,10 @@ window#waybar.hidden {
 	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 5px;
-	border-radius: 0px;
+	border-radius: 10px;
 	transition: none;
-    color: @wb_accent;
-    background: @wb_transparent;
+    color: #7dcfff;
+    background: transparent;
 }
 
 #custom-power {
@@ -210,13 +208,13 @@ window#waybar.hidden {
 	padding-left: 10px;
 	margin-bottom: 6px;
 	padding-right: 15px;
-	border-radius: 0px;
+	border-radius: 18px;
     margin-right: 8px;
     font-size: 14px;
     font-weight: bold;
 	transition: none;
-	color: @wb_foreground;
-	background: @wb_transparent;
+	color: #F1F1F1;
+	background: #161320;
 }
 
 #custom-updates {
@@ -225,10 +223,10 @@ window#waybar.hidden {
 	padding-left: 10px;
 	padding-right: 10px;
 	margin-bottom: 0px;
-	border-radius: 0px;
+	border-radius: 10px;
 	transition: none;
-	color: @wb_accent_foreground;
-	background: @wb_transparent;
+	color: #161320;
+	background: #E8A2AF;
 }
 
 #custom-media {
@@ -237,10 +235,10 @@ window#waybar.hidden {
 	padding-left: 10px;
 	padding-right: 10px;
 	margin-bottom: 0px;
-	border-radius: 0px;
+	border-radius: 10px;
 	transition: none;
-	color: @wb_accent_foreground;
-	background: @wb_transparent;
+	color: #161320;
+	background: #F2CDCD;
 }
 #custom-player {
 	margin-top: 6px;
@@ -249,10 +247,10 @@ window#waybar.hidden {
 	padding-right: 10px;
     margin-right: 0px;
 	margin-bottom: 6px;
-	border-radius: 0px;
+	border-radius: 18px;
 	transition: none;
     font-size: 14px;
     font-weight: bold;
-	color: @wb_foreground;
-	background: @wb_transparent;
+	color: #F1F1F1;
+	background: #161320;
 }

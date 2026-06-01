@@ -3,6 +3,13 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export PATH="$HOME/.local/bin:$PATH"
 
+# Go XDG-style paths
+export GOPATH="$HOME/.local/share/go"
+export GOBIN="$GOPATH/bin"
+export GOMODCACHE="$GOPATH/pkg/mod"
+export GOCACHE="$HOME/.cache/go-build"
+export PATH="$GOBIN:$PATH"
+
 # ---------- HISTORY ----------
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000
@@ -15,7 +22,7 @@ setopt inc_append_history
 # ---------- BEHAVIOR ----------
 setopt autocd
 setopt interactivecomments
-PROMPT='%n@%m:%~ %# '
+PROMPT='%2~ %# '
 # keybindings (emacs)
 bindkey -e
 
@@ -50,6 +57,8 @@ alias ll="ls -lah"
 alias la="ls -A"
 alias gs="git status"
 alias v="nvim"
+
+export PATH="$HOME/.local/share/mise/installs/node/24.14.1/bin:$PATH"
 
 # ---------- STARTUP ----------
 if [[ $- == *i* ]]; then

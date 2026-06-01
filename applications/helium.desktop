@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Helium
-Exec=/usr/local/bin/helium
+Exec=/home/carlos/Repos/helium/helium-0.12.4.1-x86_64.AppImage
 Terminal=false
 Icon=thorium-browser
 Categories=Network;Utility;

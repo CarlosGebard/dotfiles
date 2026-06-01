@@ -1,0 +1,11 @@
+/* Neutral Waybar palette. */
+@define-color wb_base rgba(10, 10, 10, 0.50);
+@define-color wb_surface rgba(14, 14, 14, 0.84);
+@define-color wb_surface_solid #0e0e0e;
+@define-color wb_foreground #f1f1f1;
+@define-color wb_muted rgba(241, 241, 241, 0.58);
+@define-color wb_accent #d6d6d6;
+@define-color wb_accent_alt #b8b8b8;
+@define-color wb_warning #8f8f8f;
+@define-color wb_accent_foreground #f1f1f1;
+@define-color wb_transparent rgba(0, 0, 0, 0);

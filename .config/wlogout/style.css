@@ -1,0 +1,52 @@
+* {
+    background-image: none;
+    box-shadow: none;
+    font-family: "JetbrainsMono Nerd Font";
+}
+
+window {
+    background-color: rgba(0, 0, 0, 0.18);
+}
+
+button {
+    min-width: 156px;
+    min-height: 132px;
+    padding: 8px;
+    margin: 10px;
+    border: 1px solid rgba(241, 241, 241, 0.12);
+    border-radius: 0;
+    background-color: rgba(26, 26, 26, 0.72);
+    background-repeat: no-repeat;
+    background-position: center 26px;
+    background-size: 40px;
+    color: #f1f1f1;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+button label {
+    margin-top: 56px;
+}
+
+button:hover,
+button:focus {
+    border-color: rgba(255, 255, 255, 0.72);
+    background-color: rgba(74, 74, 74, 0.88);
+    color: #ffffff;
+}
+
+#logout {
+    background-image: image(url("icons/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("icons/suspend.png"));
+}
+
+#reboot {
+    background-image: image(url("icons/reboot.png"));
+}
+
+#shutdown {
+    background-image: image(url("icons/shutdown.png"));
+}

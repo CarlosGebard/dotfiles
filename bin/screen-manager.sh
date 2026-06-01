@@ -61,6 +61,7 @@ options=(
   "Segunda Pantalla 4K"
   "UltraWide"
   "Extendido"
+  "Stream"
   "Duplicado"
 )
 
@@ -73,7 +74,7 @@ fi
 case "$choice" in
 "Pantalla Principal")
   apply_layout "$choice" \
-    "eDP-1,3840x2160@60,0x0,2" \
+    "eDP-1,2560x1440@60,0x0,1.25" \
     "HDMI-A-1,disable"
   ;;
 
@@ -103,8 +104,14 @@ case "$choice" in
 
 "Extendido")
   apply_layout "$choice" \
-    "eDP-1,3840x2160@60,0x0,2" \
-    "HDMI-A-1,1920x1080@60,3840x0,1"
+    "eDP-1,1920x1080@60,0x0,1" \
+    "DP-2,1920x1080@60,5000x0,1"
+  ;;
+
+"Stream")
+  apply_layout "$choice" \
+    "eDP-1,1280x720@60,0x0,1" \
+    "HDMI-A-1,1920x1080@60,5000x0,1"
   ;;
 
 "Duplicado")

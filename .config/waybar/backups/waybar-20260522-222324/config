@@ -1,7 +1,8 @@
 {
     "position": "bottom",
+    "width":1700,
     "margin-top": 2,
-    "margin-bottom": 0,
+    "margn-bottom": 0,
 
 
 	"modules-left": ["custom/launcher","cpu","memory","disk"],
@@ -19,9 +20,9 @@
 		"max-length": 10,
 		"format-icons": {
 			"default": [
-                " ",
-                " ",
-                " "
+                "<span color='#7aa2f7'> </span>",
+                "<span color='#7aa2f7'> </span>",
+                "<span color='#7aa2f7'> </span>"
             ]
 		}
 	},
@@ -42,10 +43,9 @@
 	"tray": {
         "tooltip": true,
         "spacing": 10,
-        "icon-theme": "Papirus-Dark",
-        "icons": {
-            "blueman": ""
-        }
+            "icons": {
+        "blueman": "bluetooth"
+    }
 	},
 	"backlight": {
 		"tooltip": false,
@@ -61,16 +61,16 @@
             "warning": 30,
             "critical": 10
         },
-        "format": "{icon}  {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{time} {icon}",
+        "format": "{icon}  <span color='#F1F1F1'>{capacity}%</span>",
+        "format-charging": "<span color='#9ece6a'></span> <span color='#F1F1F1'>{capacity}%</span>",
+        "format-plugged": " <span color='#F1F1F1'>{capacity}</span>%",
+        "format-alt": "<span color='#F1F1F1'>{time}</span> {icon}",
         "format-icons": [
-            "", 
-            "", 
-            "", 
-            "", 
-            ""
+            "<span color='#f7768e'></span>", 
+            "<span color='#e0af68'></span>", 
+            "<span color='#e0af68'></span>", 
+            "<span color='#9ece6a'></span>", 
+            "<span color='#9ece6a'></span>"
         ]
     },
 
@@ -83,19 +83,19 @@
 
     "cpu": {
         "interval": 15,
-        "format": "  {usage}%",
+        "format": "<span color='#f7768e'> </span> {usage}%",
         "max-length": 10
     },
 
     "disk": {
-        "format": "  {used}",
+        "format": "<span color='#e0af68'> </span> {used}",
         "interval": 1,
         "on-click":"baobab"
     },
 
     "memory": {
         "interval": 30,
-        "format": "  {used}GiB",
+        "format": "<span color='#7dcfff'> </span> {used}GiB",
         "max-length": 10
     },
 
@@ -118,8 +118,8 @@
         "on-click-right": "killall rofi"
     },
     "custom/power":{
-        "format": "⏻",
-        "on-click": "wlogout --layout ~/.config/wlogout/layout --css ~/.config/wlogout/style.css --buttons-per-row 4"
+        "format": "<span color='#f7768e'>⏻</span>",
+        "on-click": "wlogout"
     },
     "custom/updates":{
         "format": "{} Update(s)",

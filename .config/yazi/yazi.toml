@@ -1,0 +1,14 @@
+[manager]
+show_hidden = false
+title_format = ""
+[opener]
+pdf = [
+	{ run = 'zathura "$@"', orphan = true, desc = "Zathura (Background)" }
+]
+
+[open]
+rules = [
+  { mime = "application/pdf", use = "pdf" }
+]
+[mgr]
+ratio = [1, 1, 3]

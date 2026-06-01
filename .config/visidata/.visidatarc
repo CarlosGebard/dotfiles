@@ -1,0 +1,18 @@
+# --- Estética General ---
+options.disp_column_sep = ' │ '  # Separador de columnas más elegante
+options.disp_row_sep = ''        # Mantener limpio sin líneas horizontales
+options.disp_truncator = '…'     # Carácter de truncado pro
+
+# --- Colores ---
+# Usa colores de tu terminal (color8, color12, etc.) o nombres estándar
+options.color_default = 'default'
+options.color_header = 'bold white'       # Cabeceras claras
+options.color_column_sep = '240'          # Separador gris oscuro (discreto)
+options.color_current_row = 'reverse'     # Resaltar fila actual
+options.color_current_col = 'bold'        # Resaltar columna actual
+options.color_key_col = 'cyan'            # Columnas "llave" en cian
+options.color_selected_row = 'yellow'     # Filas seleccionadas
+
+# --- Atributos de datos ---
+options.color_type_number = 'green'       # Números en verde
+options.color_type_date = 'magenta'       # Fechas en magenta

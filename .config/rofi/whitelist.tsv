@@ -1,33 +1,22 @@
 
-1	Neovim	nvim
-2	Yazi	yazi
-3	Btop	btop
-4	Tmux	tmux
-5	Bluetuith	bluetuith
-6	Wiremix	wiremix
-7	Neomutt	neomutt
-8	Tetris	tetris
-8	Zotero	zotero
-10	Visual Studio Code	code
-20	Spotify	cmd:flatpak run com.spotify.Client
-40	Bitwarden	bitwarden
-50	Helium	helium
+10	Neovim	nvim
+20	Bluetuith	bluetuith
+30	Wiremix	wiremix
+40	Tetris	tetris
+50	Zotero	zotero
+60	Spotify	cmd:flatpak run com.spotify.Client
+70	Bitwarden	bitwarden
+80	Helium	helium
 
-60	Files (Nemo)	nemo
-80	Obsidian	obsidian
+90	Obsidian	obsidian
 100	Kitty	kitty
 
-200	Beekeeper	beekeeper
-210	Blender	blender
-240	Disk Usage Analyzer	org.gnome.baobab
-250	File Roller	org.gnome.FileRoller
-270	GNU Radio Companion	gnuradio-grc
+110	Disk Usage Analyzer	org.gnome.baobab
 
-290	Kid3	org.kde.kid3
-300	Legcord	legcord
-310	mGBA	io.mgba.mGBA
-320	mpv	mpv
-330	ncmpcpp	cmd:kitty -e ncmpcpp
-340	OBS Studio	com.obsproject.Studio
-360	Piper	org.freedesktop.Piper
-370	Postman	postman
+140	Kid3	org.kde.kid3
+150	Legcord	legcord
+160	mpv	mpv
+170	ncmpcpp	cmd:kitty -e ncmpcpp
+180	OBS Studio	com.obsproject.Studio
+190	Piper	org.freedesktop.Piper
+200	Postman	postman

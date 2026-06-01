@@ -2,29 +2,13 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      servers = {
-        basedpyright = {
-          settings = {
-            basedpyright = {
-              analysis = {
-                typeCheckingMode = "basic",
-                diagnosticMode = "openFilesOnly",
-
-                reportAny = "none",
-                reportExplicitAny = "none",
-
-                reportUnknownVariableType = "none",
-                reportUnknownMemberType = "none",
-                reportUnknownArgumentType = "none",
-
-                reportUnusedImport = "none",
-                reportUnusedVariable = "none",
-
-                reportMissingTypeStubs = "none",
-              },
-            },
-          },
-        },
+      setup = {
+        basedpyright = function()
+          return true -- Bloquea por completo el inicio del LSP
+        end,
+        pyright = function()
+          return true -- Por si las dudas, bloquea también el pyright común
+        end,
       },
     },
   },
