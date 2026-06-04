@@ -2,12 +2,21 @@
 show_hidden = false
 title_format = ""
 [opener]
+edit = [
+	{ run = 'nvim "$@"', block = true, desc = "nvim" }
+]
 pdf = [
 	{ run = 'zathura "$@"', orphan = true, desc = "Zathura (Background)" }
 ]
 
 [open]
 rules = [
+  { mime = "text/*", use = "edit" },
+  { mime = "application/json", use = "edit" },
+  { mime = "application/toml", use = "edit" },
+  { mime = "application/yaml", use = "edit" },
+  { mime = "application/xml", use = "edit" },
+  { mime = "inode/x-empty", use = "edit" },
   { mime = "application/pdf", use = "pdf" }
 ]
 [mgr]

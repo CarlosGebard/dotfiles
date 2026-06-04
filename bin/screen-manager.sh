@@ -75,7 +75,7 @@ case "$choice" in
 "Pantalla Principal")
   apply_layout "$choice" \
     "eDP-1,2560x1440@60,0x0,1.25" \
-    "HDMI-A-1,disable"
+    "DP-2,disable"
   ;;
 
 "Segunda Pantalla 1080p")

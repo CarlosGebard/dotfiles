@@ -4,7 +4,10 @@ set -euo pipefail
 DOT="${DOTFILES_DIR:-$HOME/dotfiles}"
 
 say() { printf '%s\n' "$*"; }
-die() { printf 'ERROR: %s\n' "$*" >&2; exit 1; }
+die() {
+  printf 'ERROR: %s\n' "$*" >&2
+  exit 1
+}
 
 need_dir() {
   [[ -d "$1" ]] || die "No existe: $1"
@@ -59,8 +62,8 @@ link_file() {
 
 gen_pkglist() {
   mkdir -p "$DOT/pkglist"
-  pacman -Qqe  > "$DOT/pkglist/pacman.txt"
-  pacman -Qqem > "$DOT/pkglist/aur.txt"
+  pacman -Qqe >"$DOT/pkglist/pacman.txt"
+  pacman -Qqem >"$DOT/pkglist/aur.txt"
   say "  ✓ pkglist actualizado: pkglist/pacman.txt y pkglist/aur.txt"
 }
 
@@ -71,7 +74,7 @@ main() {
 
   # 1) ~/.config apps (symlinks por carpeta)
   mkdir -p "$HOME/.config"
-  for app in fastfetch hypr waybar rofi kitty; do
+  for app in fastfetch hypr waybar rofi kitty yazi; do
     if [[ -d "$DOT/.config/$app" ]]; then
       link_dir "$DOT/.config/$app" "$HOME/.config/$app"
     else
