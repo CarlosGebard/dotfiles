@@ -8,16 +8,22 @@ edit = [
 pdf = [
 	{ run = 'zathura "$@"', orphan = true, desc = "Zathura (Background)" }
 ]
+image = [
+	{ run = 'imv "$@"', orphan = true, desc = "imv (Background)" }
+]
 
 [open]
 rules = [
   { mime = "text/*", use = "edit" },
   { mime = "application/json", use = "edit" },
+  { mime = "application/jsonl", use = "edit" },
   { mime = "application/toml", use = "edit" },
   { mime = "application/yaml", use = "edit" },
   { mime = "application/xml", use = "edit" },
   { mime = "inode/x-empty", use = "edit" },
-  { mime = "application/pdf", use = "pdf" }
+  { mime = "application/pdf", use = "pdf" },
+  { mime = "image/png", use = "image" },
+  { mime = "image/jpeg", use = "image" }
 ]
 [mgr]
 ratio = [1, 1, 3]

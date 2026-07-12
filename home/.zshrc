@@ -30,17 +30,6 @@ bindkey -e
 autoload -Uz compinit
 compinit
 
-# ---------- TOOLS ----------
-
-# mise (tu manager principal)
-[ -f "$HOME/.local/share/mise/activate" ] && source "$HOME/.local/share/mise/activate"
-
-# zoxide (cd inteligente)
-command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
-
-# starship prompt (si lo usas)
-command -v starship >/dev/null && eval "$(starship init zsh)"
-
 # ---------- YAZI (reemplazo ranger) ----------
 function y() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
@@ -58,7 +47,28 @@ alias la="ls -A"
 alias gs="git status"
 alias v="nvim"
 
-export PATH="$HOME/.local/share/mise/installs/node/24.14.1/bin:$PATH"
+# ---------- TOOLS (Inicialización al final para respetar el PATH) ----------
+
+# mise (Activación dinámica oficial)
+if command -v mise &> /dev/null; then
+    eval "$(mise activate zsh)"
+elif [ -f "$HOME/.local/share/mise/activate" ]; then
+    # Fallback si mise no está en el PATH global todavía
+    eval "$($HOME/.local/share/mise/bin/mise activate zsh)"
+fi
+
+# zoxide (cd inteligente)
+command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
+
+# starship prompt (si lo usas)
+command -v starship >/dev/null && eval "$(starship init zsh)"
+
+  # personal-os habit tracker
+export PERSONAL_OS="$HOME/Documents/01-Proyects/personal-os"
+export VICTUS_HABITS_DB="$PERSONAL_OS/data/tracker.db"
+
+alias habit="$PERSONAL_OS/.venv/bin/habit"
+alias habit-timer="$PERSONAL_OS/.venv/bin/habit-timer"
 
 # ---------- STARTUP ----------
 if [[ $- == *i* ]]; then

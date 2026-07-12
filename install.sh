@@ -67,6 +67,25 @@ gen_pkglist() {
   say "  ✓ pkglist actualizado: pkglist/pacman.txt y pkglist/aur.txt"
 }
 
+install_tpm() {
+  local tpm_dir="$HOME/.tmux/plugins/tpm"
+
+  if [[ -x "$tpm_dir/tpm" ]]; then
+    say "  ✓ TPM ya instalado: $tpm_dir"
+    return 0
+  fi
+
+  if ! command -v git >/dev/null 2>&1; then
+    say "  ! git no encontrado; no se pudo instalar TPM"
+    return 0
+  fi
+
+  mkdir -p "$(dirname "$tpm_dir")"
+  git clone https://github.com/tmux-plugins/tpm "$tpm_dir"
+  say "  ✓ TPM instalado: $tpm_dir"
+  say "  → En tmux, usa prefix + I para instalar plugins como Catppuccin"
+}
+
 main() {
   need_dir "$DOT"
   say "== Install dotfiles =="
@@ -90,7 +109,15 @@ main() {
     say "  ! omitido (no existe): $DOT/bin"
   fi
 
-  # 3) Package lists (pacman + aur) si pacman está disponible
+  # 3) Home dotfiles
+  if [[ -f "$DOT/home/.tmux.conf" ]]; then
+    link_file "$DOT/home/.tmux.conf" "$HOME/.tmux.conf"
+    install_tpm
+  else
+    say "  ! omitido (no existe): $DOT/home/.tmux.conf"
+  fi
+
+  # 4) Package lists (pacman + aur) si pacman está disponible
   if command -v pacman >/dev/null 2>&1; then
     gen_pkglist
   else
