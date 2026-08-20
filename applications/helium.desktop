@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Helium
-Exec=/home/carlos/repos/helium/helium-0.12.4.1-x86_64.AppImage --ozone-platform=x11
+Exec=/home/carlos/repos/helium/helium-0.12.4.1-x86_64.AppImage --ozone-platform=wayland
 Terminal=false
 Icon=thorium-browser
 Categories=Network;Utility;

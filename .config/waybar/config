@@ -6,7 +6,7 @@
 
 	"modules-left": ["custom/launcher","cpu","memory","disk"],
 	"modules-center": ["hyprland/workspaces"],
-	"modules-right": ["pulseaudio","battery","tray","clock","custom/power"],
+	"modules-right": ["pulseaudio","battery","custom/habit_timer","tray","clock","custom/power"],
 	
 	"pulseaudio": {
 		"tooltip": true,
@@ -116,6 +116,11 @@
         "format": " ",
         "on-click": "rofi -show drun",
         "on-click-right": "killall rofi"
+    },
+    "custom/habit_timer": {
+        "exec": "zsh -lc 'output=\"$(UV_CACHE_DIR=/tmp/victus-uv-cache /home/carlos/.local/share/mise/installs/uv/latest/uv-x86_64-unknown-linux-musl/uv run --directory /home/carlos/Documents/01-Proyects/personal-os --no-sync habit status 2>/dev/null)\"; if [[ \"$output\" == Active:* ]]; then habit_name=\"${output#Active: }\"; habit_name=\"${habit_name%% since *}\"; printf \"{\\\"text\\\":\\\"󱎫\\\",\\\"tooltip\\\":\\\"Habit timer activo: %s\\\",\\\"class\\\":\\\"active\\\"}\\n\" \"$habit_name\"; else printf \"{\\\"text\\\":\\\"󱎪\\\",\\\"tooltip\\\":\\\"Habit timer detenido\\\",\\\"class\\\":\\\"inactive\\\"}\\n\"; fi'",
+        "return-type": "json",
+        "interval": 2
     },
     "custom/power":{
         "format": "⏻",

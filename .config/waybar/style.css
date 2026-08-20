@@ -231,6 +231,24 @@ window#waybar.hidden {
 	background: @wb_transparent;
 }
 
+#custom-habit_timer {
+	margin: 6px 0 6px 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 0px;
+	font-size: 14px;
+	font-weight: bold;
+	background: @wb_transparent;
+}
+
+#custom-habit_timer.active {
+	color: #a6e3a1;
+}
+
+#custom-habit_timer.inactive {
+	color: @wb_muted;
+}
+
 #custom-media {
 	margin-top: 6px;
 	margin-left: 8px;
